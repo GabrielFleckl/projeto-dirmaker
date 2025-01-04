@@ -13,13 +13,13 @@ var rootCmd = &cobra.Command{
 	Run:   Create,
 	PreRun: func(cmd *cobra.Command, args []string) {
 
-		fmt.Println("Creating...")
+		fmt.Println(" 📁 Structure created:")
 		fmt.Println("")
 
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		fmt.Println("")
-		fmt.Println("All Done!")
+		fmt.Println("All Done! 👌🏻")
 	},
 }
 
