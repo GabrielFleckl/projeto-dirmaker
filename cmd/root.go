@@ -7,36 +7,34 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "dirmaker",
+	Use:   "dirmaker [main directory]",
 	Short: "DirMaker is a very fast CLI directory and files structure creator.",
-}
-
-var createCmd = &cobra.Command{
-	Use:   "create [main directory]",
-	Short: "Create directories and files with args",
 	Args:  cobra.ExactArgs(1),
 	Run:   Create,
 	PreRun: func(cmd *cobra.Command, args []string) {
 
-		fmt.Println("Creating...")
+		fmt.Println(" 📁 Structure created:")
 		fmt.Println("")
 
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		fmt.Println("")
-		fmt.Println("All Done!")
+		fmt.Println("All Done! 👌🏻")
 	},
 }
 
+// 	PostRun: func(cmd *cobra.Command, args []string) {
+// 		fmt.Println("")
+// 		fmt.Println("All Done!")
+// 	},
+// }
+
 func InitCobra() {
 
-	// add flags to cmd "create"
-	createCmd.Flags().StringVarP(&createSubDirs, "subdirs", "s", "", "List of sub directories")
+	// add flags to rootCmd
+	rootCmd.Flags().StringVarP(&createSubDirs, "subdirs", "s", "", "List of sub directories")
 
-	createCmd.Flags().StringVarP(&createFiles, "files", "f", "", "List of files")
-
-	// add create to dirmaker
-	rootCmd.AddCommand(createCmd)
+	rootCmd.Flags().StringVarP(&createFiles, "files", "f", "", "List of files")
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Print(err)

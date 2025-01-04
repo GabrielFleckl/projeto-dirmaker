@@ -1,12 +1,12 @@
 package cmd
 
 import (
+	"dirmaker/utils"
 	"fmt"
+	"github.com/spf13/cobra"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/spf13/cobra"
 )
 
 var (
@@ -14,24 +14,23 @@ var (
 	createSubDirs string
 )
 
-// Create Directories
 func Create(cmd *cobra.Command, args []string) {
 	directoryName := args[0]
 
 	if len(args) == 0 {
-		fmt.Println("NO ARGS YET")
 		cmd.Usage()
 		return
 	}
+
 	// Create Main Directory
 	err := os.MkdirAll(directoryName, os.ModePerm)
 	if err != nil {
 		fmt.Printf("Error To Create Directory '%s': %v\n", directoryName, err)
 		return
 	}
+	fmt.Println(directoryName + "/")
 
-	fmt.Printf("Directory Created: '%s' \n", directoryName)
-
+	// Create Sub Directories
 	subDirs := strings.Split(createSubDirs, ",")
 	for _, subDir := range subDirs {
 		if subDir == "" {
@@ -44,12 +43,11 @@ func Create(cmd *cobra.Command, args []string) {
 			fmt.Printf("Error To Create Sub Directory `%s`: `%v\n`", subDirPath, err)
 			return
 		}
-
-		fmt.Printf("Sub Directory Created: `%s`\n", subDirPath)
 	}
 
-	// Create files
+	// Create Files
 	files := strings.Split(createFiles, ",")
+
 	for _, file := range files {
 		if file == "" {
 			continue
@@ -62,6 +60,7 @@ func Create(cmd *cobra.Command, args []string) {
 			continue
 		}
 		f.Close()
-		fmt.Printf("File Created: `%s`\n", filePath)
 	}
+	// Show Log of Created Branches
+	utils.GenerateTree(subDirs, files)
 }
