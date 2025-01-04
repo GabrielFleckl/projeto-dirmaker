@@ -13,27 +13,42 @@
 <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
+<br>
+  <img alt="layout-web" src="./docs/dirmaker.png" width="100%">
+
 # 📖 About
 
 **Dirmaker** is an application developed in Go (Golang) that simplifies directory creation. It is designed to be a lightweight and efficient utility, perfect for organizing directories in projects or tasks.
 
 # ⚙️ How to Use
 
+## #1
+
+1. Download binary in the releases.
+   
+2. Add the Downloaded binary to your PATH for easy access.
+
+## #2
+
 1. Ensure you have [Go](https://golang.org/) installed on your machine.
 2. Clone this repository:
+
    ```bash
-   git clone https://github.com/seu-usuario/dirmaker.git
+   git clone https://github.com/GabrielFleckl/projeto-dirmaker.git
    ```
+
 3. Compile the project:
+
    ```bash
    go build -o dirmaker
    ```
+
 4. Add the generated binary to your PATH for easy access.
 
 ## How it works
 
 ```bash
-  dirmaker create [root directory] [flags]
+  dirmaker [root directory] [flags]
 ```
 
 ## Good To Know
@@ -53,7 +68,7 @@
 ### Create a Directory with Subdirectories and Files:
 
 ```bash
-  dirmaker create mydir --subdirs src,bin --files README.md,main.go
+  dirmaker mydir --subdirs src,bin --files README.md,main.go
 ```
 
 Dirmaker will create:
@@ -75,12 +90,12 @@ mydir/
 ### Create Files in the Current Directory:
 
 ```bash
-dirmaker create ./ --files README.md,main.go
+dirmaker ./ --files README.md,main.go
 ```
 
 Dirmaker will create:
 
-- Two files in the root directory.
+- Two files in the current directory.
 
 Generated structure:
 
@@ -98,8 +113,8 @@ This project is licensed under the MIT License. See the file LICENSE for more de
 
 # 🌐 Contact
 
-<a href="https://www.linkedin.com/in/seu-perfil-linkedin" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-<a href="mailto:seu-email@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/dev-gabriel-leite/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+<a href = "mailto:gabrielleiteadm@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
 
 <br>
 
