@@ -2,18 +2,10 @@ package main
 
 import (
 	"dirmaker/cmd"
-	"fmt"
-	"log"
-	"os"
+	"dirmaker/utils"
 )
 
 func main() {
-	content, err := os.ReadFile("banner.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(string(content))
-
+	utils.ShowBanner()
 	cmd.InitCobra()
 }
